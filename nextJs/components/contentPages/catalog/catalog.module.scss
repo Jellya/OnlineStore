@@ -1,0 +1,261 @@
+.catalog {
+	&Bar {
+		display: flex;
+		position: relative;
+		justify-content: start;
+		text-transform: uppercase;
+		margin-bottom: 50px;
+		color: #474747;
+		&__item {
+			padding: 10px 20px;
+			margin-right: 50px;
+			background-color: rgba($color: #474747, $alpha: 0.1);
+			cursor: pointer;
+			&:after {
+				content: '\276F';
+				padding-left: 10px;
+			}
+			&:hover .catalogBar__formFilters {
+				display: flex;
+			}
+		}
+		&__formFilters {
+			z-index: 5;
+			font-size: 16px;
+			padding: 50px;
+			margin-left: -20px;
+			position: absolute;
+			top: 40px;
+			background-color: #fff;
+			text-transform: initial;
+            box-shadow: 0 10px 20px rgba($color: #474747, $alpha: 0.3);
+            
+            display: none;
+		}
+
+
+		&__category {
+			display: flex;
+			flex-direction: column;
+			margin-right: 120px;
+			label {
+				position: relative;
+				top:-15px;
+				left: 25px;
+			}
+		}
+
+		&__filters {
+			display: flex;
+			flex-direction: column;
+			width: 200px;
+			input[type=checkbox] {
+					display: none;
+				}
+			label {
+					display: flex;
+					cursor: pointer;
+					position: relative;
+					text-align:center;
+					left: -25px;
+				}
+					
+		}
+		&__sizes {
+			display: flex;
+			flex-direction: column;
+			label:before {
+				content: "";
+				display: flex;
+				width: 40px;
+				height: 40px;
+				left: 28px;
+				position: relative;
+				top: -12px;
+				background-color: rgba($color: #474747, $alpha: 0.1);
+			}
+				
+			input[type=checkbox]:checked + label:before {
+				background-color: rgba($color: #474747, $alpha: 0.4);
+				}
+					
+		}
+		&__checkboxRow {
+			display: flex;
+			justify-content: space-between;
+			margin: 30px 0 40px 25px;
+		}
+		&__colors {
+			display: flex;
+			flex-direction: column;
+			margin-right: 50px;
+			label:before {
+				content: "";
+				display: flex;
+				width: 25px;
+				height: 25px;
+				position: relative;
+				top: -12px;
+				border-radius: 50%;
+				border: 1px solid rgba($color: #474747, $alpha: 0.3);
+				background-color: rgba($color: #474747, $alpha: 0.1);
+			}
+			input[type=checkbox]:nth-of-type(1) + label:before{
+				background-color:  #a5ad9d;
+			}
+			input[type=checkbox]:nth-of-type(2) + label:before{
+				background-color:  #fcfaec;
+			}
+			input[type=checkbox]:nth-of-type(3) + label:before{
+				background-color:  #dfe4e7;
+			}
+			input[type=checkbox]:nth-of-type(4) + label:before{
+				background-color:  #312b2e;
+			}
+			input[type=checkbox]:nth-of-type(5) + label:before{
+				background-color:  #f2f2f2;
+			}
+			input[type=checkbox]:nth-of-type(6) + label:before{
+				background-color:  #ffffff;
+			}
+			input[type=checkbox]:checked + label:before {
+				content:"\2713";
+				text-align: center;
+				font-size: 20px;
+				text-shadow: 1px 1px 1px rgba($color: #ffffff, $alpha: 1.0);
+			}
+		}
+		&__pricing {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			line-height: 30px;
+			.catalogBar__checkboxRow {
+				margin-left: 0;
+				display: flex;
+			}
+			.checkbox__number {
+				border: 1px solid rgba($color: #181818, $alpha: 0.2);
+				width: 100px;
+				height: 30px;
+				font-size: 16px;
+				text-align: center;
+			}
+		}
+
+		&__title {
+			font-size: 26px;
+			font-weight: 500;
+			margin-bottom: 40px;
+		}
+		&__reset {
+			background-color: transparent;
+			margin: 0 auto;
+			width: 150px;
+		}
+	}
+	&Grid {
+		&__like {
+			background-image: url(../../../public/like.svg);
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			cursor: pointer;
+
+		}
+		&__title {
+			margin-top: 20px;
+			font-size: 16px;
+		}
+		&__price {
+			margin-top: 10px;
+			color: #9e5f32;
+			font-weight: 600;
+			font-size: 14px;
+		}
+	}
+	&GridRow4 {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 100px;
+		&__item {
+			width: 280px;
+			padding-right: 10px;
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+		&__image {
+			position: relative;
+				img{
+					width: 100%;
+					height: 420px;
+					object-fit: cover;
+				}
+			}
+	}
+	&GridRow2 {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 100px;
+		&__item {
+			width: 570px;
+			&:first-child {
+				padding-right: 10px;
+			}
+		}
+		&__image {
+		position: relative;
+		img{
+			width: 100%;
+			height: 690px;
+			object-fit: cover;
+			}
+		}
+	}
+	&Bottom {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 100px;
+		font-size: 14px;
+		position: relative;
+		&__pages {
+			display: flex;
+		}
+		&__page {
+			padding-right: 10px;
+			color: rgba($color: #181818, $alpha: 0.4);
+			&:first-child {
+				color: #474747;
+			}
+		}
+		&__button {
+			padding: 12px 50px;
+			font-weight: 500;
+			font-size: 16px;
+			color: #474747;
+			background-color: rgba($color: #181818, $alpha: 0.1);
+			position: absolute;
+			left: 50%;
+			margin-left: -100px;
+		}
+		&__numbers {
+			display: flex;
+		}
+		&__number {
+			padding-left: 15px;
+			color: rgba($color: #181818, $alpha: 0.4);
+			&:first-child {
+				color: #474747;
+			}
+		}
+	}
+}
+
+.products {
+	display: flex;
+	flex-flow: row wrap;
+}

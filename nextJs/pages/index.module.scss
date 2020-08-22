@@ -1,0 +1,245 @@
+.hmpage__title {
+	text-transform: uppercase;
+	font-size: 160px;
+	color:rgba($color: #474747, $alpha: 0.1);
+	font-weight: 600;
+
+}
+
+.hmpage__button {
+	text-align: center;
+	width: 100%;
+	a {
+		padding: 20px 90px;
+		font-size: 14px;
+		color: #181818;;
+		border: 2px solid rgba($color: #181818, $alpha: 0.2);
+		text-transform: uppercase;
+		font-weight: 500;
+		transition: 0.5s ease;
+		&:hover {
+			border: 2px solid #9e5f32;
+		}
+	}
+}
+
+.preview {
+	text-transform: uppercase;
+	text-align: center;
+	position: relative;
+	margin-bottom: 250px;
+	&__image {
+		background: url(../public/Screenshot_3.png) no-repeat;
+		z-index: -5;
+        width: 99vw;
+        height: 100%;
+		background-size: cover;
+		background-position: 0 0;
+
+	}
+	&Col {
+		color: #fff;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		&__title {
+			font-size: 54px;
+			font-weight: 500;
+			margin-top: 280px;
+			margin-bottom: 60px;
+
+		}
+		&__desc {
+			font-size: 40px;
+			margin-bottom: 80px;
+
+		}
+		&__button {
+			margin-bottom: 280px;
+			a {
+			font-size: 14px;
+			padding: 20px 100px;
+			background: #9e5f32;
+			color: #fff;
+				}
+		}
+	}
+}
+
+.popular {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 200px;
+	&Grid {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		margin-top: -23px;
+		margin-bottom: 120px;
+		&__item {
+			display: flex;
+			flex-direction: column;
+			font-size: 14px;
+			font-weight: 500;
+			padding-right: 10px;
+			&:last-child{
+				margin-right: 0;
+				padding-right: 0;
+			}
+		}
+		&__image {	
+			img {
+				width: 300px;
+				height: 500px;
+				object-fit: cover;
+			}
+
+		}
+		&__title {
+			padding-top: 20px;
+			margin-bottom: 10px;
+		}
+		&__price {
+			color: #9e5f32;
+			font-weight: 600;
+		}
+	}
+}
+
+.presentation{
+	margin-bottom: 250px;
+	&__video {
+		width: 99vw;
+		height: 100vh;
+		transform: translateX(-50%);
+		position: relative;
+		left: 50%;
+	}
+}
+
+.catalogPreview {
+	margin-bottom: 200px;
+	&Categories {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: space-around;
+	margin-top: -30px;
+		&__item {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 100px;
+			padding: 5px;
+	}
+	&__image img{
+		object-fit: contain;
+	}
+	&__title {
+		margin-top: 15px;
+		font-weight: 500;
+	}
+	}
+}
+.quote {
+	margin-bottom: 200px;
+	&__text {
+		font-size: 26px;
+		text-align: center;
+		line-height: 1.5;
+		margin-bottom: 30px;
+		font-weight: 400;
+
+	}
+	&__author {
+		text-align: center;
+		color: #9e5f32;
+		font-weight: 500;
+		font-size: 16px;
+
+	}
+}
+
+.hmpageAboutUs {
+	margin-bottom: 200px;
+	width: 100%;
+	&__block {
+		margin-top: -25px;
+		display: flex;
+		flex: 0 1 auto;
+		width: 100%;
+	}
+	&__image {
+		width: 100%;
+		img {
+			object-fit: contain;
+		}
+	}
+	&__desc {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 50px 0;
+		padding: 0 100px;
+		background-color: rgba($color: #f5f5f5, $alpha: 1);
+		>.hmpageSec__button {
+			text-align: left;
+		}
+	}
+	&__text {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 30px;
+		font-weight: 500;
+		p {
+			margin-bottom: 20px;
+			font-size: 14px;
+			line-height: 1.5;
+		}
+	}
+}
+
+.follow {
+	margin-bottom: 200px;
+	&Block {
+		margin-top: -25px;
+		position: relative;
+	}
+	&Grid{
+		display: flex;
+		flex-flow: row wrap;
+		margin-left: 60px;
+		&__item {
+			width: 380px;
+			height: 460px;
+			margin-bottom: 30px;
+			&:nth-child(odd) {
+				margin-right: 300px;
+			}
+			&:nth-child(2) {
+				margin-top: 90px;
+			}
+			&:nth-child(3) {
+				margin-top: -90px;
+			}
+
+		}
+		&__image {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&Preview {
+		position: absolute;
+		top: 200px;
+		left: 370px;
+		&__image {
+			object-fit: cover;
+		}
+	}
+}
+
+.products {
+	display: flex;
+	flex-flow: row wrap;
+}

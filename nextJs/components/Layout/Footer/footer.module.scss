@@ -1,0 +1,128 @@
+
+	.footer {
+		font-size: 12px;
+		font-weight: 500;
+		color: rgba($color: #474747, $alpha: 1);
+        padding-top: 100px;
+		background-color: #f2e7df;
+		@media (max-width:1025px) {
+			font-size: 16px;
+			padding: 100px 60px 0 60px;
+		}
+		@media (max-width:767px) {
+			padding: 80px 10px;
+			font-size: 18px;
+		}
+		&Top {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 100px;
+		}
+		&__title {
+			font-weight: 600;
+			font-size: 14px;
+			margin-bottom: 30px;
+			padding-right: 15px;
+			@media (max-width:1025px) {
+				font-size: 18px;
+			}
+			@media (max-width:767px) {
+				font-size: 20px;
+			}
+		}
+		&__email {
+			.form__button {
+				width: 24px;
+				height: 24px;
+				margin-left:-30px;
+				margin-bottom: -5px;
+				background:url('../../../public/paper-plane.png') no-repeat;
+				cursor: pointer;
+			}
+			.form__text {
+				background-color: #f2e7df;
+				width: 400px;
+				border-bottom: 2px solid  rgba($color: #474747, $alpha: 0.4);
+				padding: 8px 0;
+				font-size: 12px;
+				transition: .5s ease;
+				&:hover{
+					border-bottom: 2px solid  rgba($color: #474747, $alpha: 0.8);
+				}
+				@media (max-width:1025px) {
+					font-size: 16px;
+				}
+				@media (max-width:767px) {
+					width: 100%;
+					font-size: 20px;
+				}
+			}
+		}
+		
+		&Social {
+			margin-right: 200px;
+			@media (max-width:1025px) {
+				margin-right: 20px;
+			}
+			@media (max-width:767px) {
+				display: none;
+			}
+			&__items {
+				display: flex;
+			}
+			&__item {
+				margin-right: 20px;
+				&:last-child {
+					margin-right: 0;
+				}
+				>svg path{
+					fill: rgba($color: #474747, $alpha: 1);
+				}
+			}
+		}
+		&Nav {
+			margin-right: 220px;
+			margin-bottom: 100px;
+			display: flex;
+			justify-content: space-between;
+			@media (max-width:1025px) {
+				margin-right: 0;
+			}
+			@media (max-width:767px) {
+				flex-direction: column;
+				margin-bottom: 0;
+			}
+			&__column {
+				@media (max-width:767px) {
+					margin-bottom: 50px;
+				}
+			}
+			&__item {
+				margin-bottom: 20px;
+				a {
+				color: rgba($color: #474747, $alpha: 0.8);
+				transition: 0.3s;
+				&:hover{
+					color: rgba($color: #474747, $alpha: 1);
+				}}
+			}
+		}
+		&Bottom {
+			display: flex;
+			flex-direction: column;
+			&::before {
+				content: '';
+				width: 100%;
+				border-top: 2px solid rgba($color: #474747, $alpha: 0.4);
+				margin-bottom: 20px;
+			}
+			&__info {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 40px;
+				@media (max-width:767px) {
+					display: none;
+				}
+			}
+		}
+	}
