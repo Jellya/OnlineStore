@@ -37,7 +37,7 @@ export default function Collections({  homeProducts, preview, collections, produ
 }
 
 export async function getStaticProps({preview = null}) {
-  const homeProducts = (await getProductForHome({ limit: 10 })) || [];
+  const homeProducts = (await getProductForHome()) || [];
   const collections = (await getCollection()) || [];
   let productsByCollection = []
   if (collections.length !== 0) {

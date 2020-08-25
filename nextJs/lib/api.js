@@ -52,6 +52,18 @@ export async function getAllPostsWithSlug() {
   return data?.allPosts
 }
 
+/*export async function getProductWithId() {
+  const data = fetchAPI(
+    `
+    {
+      products {
+        id
+      }
+    }
+  `)
+  return data?.productWithId
+}*/
+
 export async function getAllPostsForHome(preview) {
   const data = await fetchAPI(
     `
@@ -141,7 +153,7 @@ export async function getPostAndMorePosts(slug, preview) {
   return data
 }
 
-export async function getProductForHome () {
+export async function getProductForHome (id) {
 
   const data = await fetchAPI(
     `
@@ -161,8 +173,7 @@ export async function getProductForHome () {
     {
       variables: {
         where: {
-        
-          // limit,
+          id,
           // count: {_gt: 0}
         },
       },

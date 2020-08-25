@@ -50,7 +50,7 @@ export default function Catalog({ homeProducts, preview, collections, categories
 }
 
 export async function getStaticProps({ preview = null }) {
-  const homeProducts = (await getProductForHome({ limit: 5 })) || [];
+  const homeProducts = (await getProductForHome()) || [];
   const collections = (await getCollection()) || [];
   const categories = (await getCategories()) || [];
 

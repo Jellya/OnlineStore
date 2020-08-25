@@ -51,7 +51,7 @@ export default function Favorites({ preview, homeProducts = [] }) {
 }
 
 export async function getStaticProps({ preview = null }) {
-    const homeProducts = (await getProductForHome({ limit: 10 })) || [];
+    const homeProducts = (await getProductForHome()) || [];
     const collections = (await getCollection()) || [];
 
     return {
