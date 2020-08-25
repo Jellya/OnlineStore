@@ -1,14 +1,12 @@
 import { useRouter } from "next/router"
-import ErrorPage from 'next/error'
 import { getProductForHome, getProductWithId } from '@/lib/api'
 import Container from '@/components/Container'
 import Layout from '@/components/Layout'
-import Product from '@/components/common/Product'
 import { useSelector, useDispatch } from 'react-redux'
 import { addToCart, addToFavorite, removeFromFavorite } from '../../redux/actions.js'
 import styles from '@/components/common/Product/product.module.scss'
 
-const PageProduct = ({ id, name, description, price, image, removeProduct, cart = [], favorites= []}) => {
+const PageProduct = ({ id, name, description, price, image,  cart = [], favorites = [] }) => {
     const isAddingToCart = cart.includes(id);
     const isAddingToFav = favorites.includes(id);
     return (<div className={styles.productPageItem}>
@@ -18,35 +16,35 @@ const PageProduct = ({ id, name, description, price, image, removeProduct, cart 
                 }${url}`
             return <img className={styles.productPageImg} src={imageUrl} alt={name} />
         })}
-        {isAddingToFav
-            ? <div onClick={() => removeFromFavorite(id)} className={styles.productPagelikeFill}></div>
-            : <div onClick={() => addToFavorite(id)} className={styles.productPagelike}></div>
-        }
         <div className={styles.productPageAbout}>
             <h3 className={styles.productPageTitle}>{name}</h3>
             <p className={styles.productPageDesc}>{description}</p>
             <p className={styles.productPagePrice}>{price}$</p>
-        {isAddingToCart
-            ? <div>Added to cart</div>
-            : <button onClick={() => addToCart(id)} className={styles.productPageCart}>Buy</button>
-        }
+            {isAddingToCart
+                ? <div>Added to cart</div>
+                : <button onClick={() => addToCart(id)} className={styles.productPageCart}>Buy</button>
+            }
+            {isAddingToFav
+                ? <div onClick={() => removeFromFavorite(id)} className={styles.productPagelikeFill}></div>
+                : <div onClick={() => addToFavorite(id)} className={styles.productPagelike}></div>
+            }
         </div>
     </div>)
 }
 
 
-export default function Item({ items }) {
-    const router = useRouter();
+export default function Item({ allProducts }) {
+
     const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart);
     const favorites = useSelector((state) => state.favorites)
-    
+
     return (
         <Layout>
             <Container>
                 {
-                    items.length > 0
-                    && items
+                    allProducts.length > 0
+                    && allProducts
                         .map(itemproduct => (
                             <PageProduct {...itemproduct}
                                 cart={cart}
@@ -63,9 +61,9 @@ export default function Item({ items }) {
 }
 
 export async function getStaticProps({ params }) {
-    const items = (await getProductForHome(params.id)) || [];
+    const allProducts = (await getProductForHome(params.id)) || [];
     return {
-        props: { items }
+        props: { allProducts }
     }
 }
 
