@@ -71,7 +71,7 @@ export default function Index({ homeProducts, preview, collections, categories }
 }
 
 export async function getStaticProps({ preview = null }) {
-  const homeProducts = (await getProductForHome({ limit: 10 })) || [];
+  const homeProducts = (await getProductForHome()) || [];
   const collections = (await getCollection()) || [];
   const categories = (await getCategories()) || []; 
 

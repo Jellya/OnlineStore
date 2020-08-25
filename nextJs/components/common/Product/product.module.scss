@@ -57,6 +57,68 @@
     cursor: pointer;
     transition: 0.6s ease;
     &Fill {
-        background-image: url(../../../public/likeFill.svg);
+        background-image: url(../../public/likeFill.svg);
+    }
+}
+
+.productPage {
+    &Item {
+        display: flex;
+        position: relative;
+        margin-right: 25px;
+        width: 100%;
+    }
+    &Title {
+        padding-top: 100px;
+        margin-bottom: 30px;
+        font-weight: 500;
+        font-size: 46px;
+    }
+    &Price {
+        color: #9e5f32;
+        font-weight: 600;
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+    &Img {
+        width: 40%;
+        object-fit: cover;
+        margin-right: 200px;
+    }
+    &About {
+        display: flex;
+        flex-direction: column;
+    }
+    &Cart {
+        width: 100px;
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 50px;
+        border: 1px solid #181818;
+        padding:  8px 0;
+        transition: 0.5s ease;
+        &:hover {
+            border: 1px solid #9e5f32;
+        }
+    }
+    &like,&likeFill {
+        background-image: url(../../../public/like.svg);
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        cursor: pointer;
+        transition: 0.6s ease;
+        &Fill {
+            background-image: url(../../../public/likeFill.svg);
+        }
+    }
+    &Desc {
+        font-size: 20px;
+        margin-bottom: 50px;
+    }
+    &Count {
+        display: none;
     }
 }
