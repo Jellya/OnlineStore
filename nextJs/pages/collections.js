@@ -5,11 +5,25 @@ import Head from 'next/head'
 import Catalog from './catalog'
 import Product from '@/components/common/Product'
 import { useSelector, useDispatch } from 'react-redux'
-import { addToCart } from '../redux/actions.js'
+import { addToCart, addToFavorite, removeFromFavorite } from '../redux/actions.js'
+import { Cover } from '../components/common/Cover'
+import styles from '@/components/contentPages/catalog/catalog.module.scss'
+import Link from 'next/link'
 
-export default function Collections({  homeProducts, preview, collections, productsByCollection }) {
-  const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart)
+
+const CollectionPreview = ({ name }) => {
+  return (
+    <Link href='/collections/[name]' as={`/collections/${name}`}>
+      <a>
+
+      </a>
+    </Link>
+  )
+}
+
+
+export default function Collections({ collections }) {
+
   return (
     <>
       <Layout>
@@ -17,18 +31,19 @@ export default function Collections({  homeProducts, preview, collections, produ
           <title>Collections</title>
         </Head>
         <Container>
-
-          <h2>Collections</h2>
+          <Cover title={"collections"} />
           {collections.length !== 0 && collections.map(itemCollection => {
             // TODO вынести в отдельный компонент
             return <div>{itemCollection.name}</div>
           })}
 
+
           {
-            productsByCollection.length !==0 && 
-            productsByCollection.map(product => (
-            <Product {...product} cart={cart} addToCart={(id) => dispatch(addToCart(id))}/>))
+            collections.length !== 0
+            && collections.map(collection => <CollectionPreview {...collection} />)
           }
+
+
 
         </Container>
       </Layout>
@@ -36,14 +51,22 @@ export default function Collections({  homeProducts, preview, collections, produ
   )
 }
 
-export async function getStaticProps({preview = null}) {
+export async function getStaticProps() {
+  const collections = (await getCollection()) || [];
+
+  return {
+    props: { collections },
+  }
+}
+
+/* async function getStaticProps() {
   const homeProducts = (await getProductForHome()) || [];
   const collections = (await getCollection()) || [];
   let productsByCollection = []
   if (collections.length !== 0) {
-    productsByCollection = await getProductByCollection(collections[1].name)
+    productsByCollection = await getProductByCollection(collections.name)
   }
   return {
-    props: { homeProducts, preview, collections, productsByCollection },
+    props: { homeProducts, collections, productsByCollection },
   }
-}
+}*/
