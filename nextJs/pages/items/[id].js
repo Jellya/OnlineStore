@@ -1,3 +1,4 @@
+
 import { useRouter } from "next/router"
 import { getProductForHome, getProductWithId } from '@/lib/api'
 import Container from '@/components/Container'
@@ -6,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { addToCart, addToFavorite, removeFromFavorite } from '../../redux/actions.js'
 import styles from '@/components/common/Product/product.module.scss'
 
-const PageProduct = ({ id, name, description, price, image,  cart = [], favorites = [] }) => {
+const PageProduct = ({ id, name, description, price, image, addToCart, addToFavorite, removeFromFavorite, cart = [], favorites = [] }) => {
     const isAddingToCart = cart.includes(id);
     const isAddingToFav = favorites.includes(id);
     return (<div className={styles.productPageItem}>

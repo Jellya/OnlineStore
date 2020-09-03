@@ -524,12 +524,18 @@
           },
           "name": {
             "type": "string"
+          },
+          "title": {
+            "type": "string"
           }
         }
       },
       "NewCollection": {
         "properties": {
           "name": {
+            "type": "string"
+          },
+          "title": {
             "type": "string"
           }
         }

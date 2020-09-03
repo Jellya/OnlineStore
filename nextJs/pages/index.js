@@ -53,7 +53,6 @@ export default function Index({ homeProducts, preview, collections, categories }
           subTitle={"summer 2020"} 
           buttonText={"view collection"} 
         />
-
         <PopularBlock popularItems={PopularItems} />
         <FullscreenVideo srcVideo={"https://www.youtube.com/embed/jLA_Zlfc4g4"} />
         <CatalogBlock categories={categories} />
@@ -62,7 +61,6 @@ export default function Index({ homeProducts, preview, collections, categories }
           text={"The ability to dress rests on three pillars - simplicity, good taste and the habit of taking care of yourself — "} 
           textBold={"and it's not at all expensive."} 
           />
-
         <AboutBlock />
         <FollowBlock />
       </Layout>

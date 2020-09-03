@@ -2,6 +2,7 @@ import Container from '@/components/Container'
 import Layout from '@/components/Layout'
 import Head from 'next/head'
 import styles from '@/components/contentPages/aboutus/aboutus.module.scss'
+import Link from 'next/link'
 
 export default function AboutUs() {
   return (
@@ -76,7 +77,11 @@ export default function AboutUs() {
               <iframe className={styles.presentation__video} src="https://www.youtube.com/embed/jLA_Zlfc4g4" frameborder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div className={styles.catalog__button}><a href="/catalog">see our catalog</a></div>
+            <div className={styles.catalog__button}>
+              <Link href="/catalog">
+                <a>see our catalog</a>
+              </Link>
+            </div>
           </section>
         </Container>
       </Layout>

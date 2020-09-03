@@ -133,6 +133,7 @@ type Collection {
   created_at: DateTime!
   updated_at: DateTime!
   name: String
+  title: String
 }
 
 type CollectionAggregator {
@@ -161,6 +162,11 @@ type CollectionConnectionName {
   connection: CollectionConnection
 }
 
+type CollectionConnectionTitle {
+  key: String
+  connection: CollectionConnection
+}
+
 type CollectionConnectionUpdated_at {
   key: DateTime
   connection: CollectionConnection
@@ -171,10 +177,12 @@ type CollectionGroupBy {
   created_at: [CollectionConnectionCreated_at]
   updated_at: [CollectionConnectionUpdated_at]
   name: [CollectionConnectionName]
+  title: [CollectionConnectionTitle]
 }
 
 input CollectionInput {
   name: String
+  title: String
 }
 
 input ColorInput {
@@ -384,6 +392,7 @@ input editCategoryInput {
 
 input editCollectionInput {
   name: String
+  title: String
 }
 
 input editColorInput {
@@ -484,7 +493,7 @@ scalar JSON
 """The `Long` scalar type represents 52-bit integers"""
 scalar Long
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Author | AuthorConnection | AuthorAggregator | AuthorGroupBy | AuthorConnectionId | AuthorConnectionCreated_at | AuthorConnectionUpdated_at | AuthorConnectionName | AuthorConnectionPicture | createAuthorPayload | updateAuthorPayload | deleteAuthorPayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_at | CategoryConnectionUpdated_at | CategoryConnectionName | CategoryConnectionImage | CategoryConnectionSlugName | CategoryConnectionSlug | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Collection | CollectionConnection | CollectionAggregator | CollectionGroupBy | CollectionConnectionId | CollectionConnectionCreated_at | CollectionConnectionUpdated_at | CollectionConnectionName | createCollectionPayload | updateCollectionPayload | deleteCollectionPayload | Colors | ColorsConnection | ColorsAggregator | ColorsGroupBy | ColorsConnectionId | ColorsConnectionCreated_at | ColorsConnectionUpdated_at | ColorsConnectionTitle | createColorPayload | updateColorPayload | deleteColorPayload | Post | PostConnection | PostAggregator | PostGroupBy | PostConnectionId | PostConnectionCreated_at | PostConnectionUpdated_at | PostConnectionTitle | PostConnectionContent | PostConnectionExcerpt | PostConnectionCoverImage | PostConnectionDate | PostConnectionSlug | PostConnectionAuthor | PostConnectionStatus | createPostPayload | updatePostPayload | deletePostPayload | Product | ProductConnection | ProductAggregator | ProductAggregatorSum | ProductAggregatorAvg | ProductAggregatorMin | ProductAggregatorMax | ProductGroupBy | ProductConnectionId | ProductConnectionCreated_at | ProductConnectionUpdated_at | ProductConnectionName | ProductConnectionDescription | ProductConnectionPrice | ProductConnectionCount | ProductConnectionCollection | ProductConnectionColor | createProductPayload | updateProductPayload | deleteProductPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Author | AuthorConnection | AuthorAggregator | AuthorGroupBy | AuthorConnectionId | AuthorConnectionCreated_at | AuthorConnectionUpdated_at | AuthorConnectionName | AuthorConnectionPicture | createAuthorPayload | updateAuthorPayload | deleteAuthorPayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_at | CategoryConnectionUpdated_at | CategoryConnectionName | CategoryConnectionImage | CategoryConnectionSlugName | CategoryConnectionSlug | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Collection | CollectionConnection | CollectionAggregator | CollectionGroupBy | CollectionConnectionId | CollectionConnectionCreated_at | CollectionConnectionUpdated_at | CollectionConnectionName | CollectionConnectionTitle | createCollectionPayload | updateCollectionPayload | deleteCollectionPayload | Colors | ColorsConnection | ColorsAggregator | ColorsGroupBy | ColorsConnectionId | ColorsConnectionCreated_at | ColorsConnectionUpdated_at | ColorsConnectionTitle | createColorPayload | updateColorPayload | deleteColorPayload | Post | PostConnection | PostAggregator | PostGroupBy | PostConnectionId | PostConnectionCreated_at | PostConnectionUpdated_at | PostConnectionTitle | PostConnectionContent | PostConnectionExcerpt | PostConnectionCoverImage | PostConnectionDate | PostConnectionSlug | PostConnectionAuthor | PostConnectionStatus | createPostPayload | updatePostPayload | deletePostPayload | Product | ProductConnection | ProductAggregator | ProductAggregatorSum | ProductAggregatorAvg | ProductAggregatorMin | ProductAggregatorMax | ProductGroupBy | ProductConnectionId | ProductConnectionCreated_at | ProductConnectionUpdated_at | ProductConnectionName | ProductConnectionDescription | ProductConnectionPrice | ProductConnectionCount | ProductConnectionCollection | ProductConnectionColor | createProductPayload | updateProductPayload | deleteProductPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
 
 type Mutation {
   createAuthor(input: createAuthorInput): createAuthorPayload

@@ -12,7 +12,7 @@ import Bar from '@/components/contentPages/catalog/Bar.js'
 
 
 
-export default function Catalog({ homeProducts, preview, collections, categories }) {
+export default function Catalog({ homeProducts, collections, categories }) {
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart);
   const favorites = useSelector(state => state.favorites)
@@ -49,13 +49,13 @@ export default function Catalog({ homeProducts, preview, collections, categories
   )
 }
 
-export async function getStaticProps({ preview = null }) {
+export async function getStaticProps() {
   const homeProducts = (await getProductForHome()) || [];
   const collections = (await getCollection()) || [];
   const categories = (await getCategories()) || [];
 
   return {
-    props: { homeProducts, preview, collections, categories },
+    props: { homeProducts, collections, categories },
   }
 }
 

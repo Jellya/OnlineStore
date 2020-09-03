@@ -8,7 +8,7 @@ function Product(props) {
     const isAddingToFav = favorites.includes(id);
     return (
         <div className={styles.productItem}>
-            <Link key={id} href={`/items/${id}`}>
+            <Link key={id} href='/items/[id]' as={`/items/${id}`}>
                 <a>
                     {image.length !== 0 && image.map(({ url }) => {
                         const imageUrl = `${
