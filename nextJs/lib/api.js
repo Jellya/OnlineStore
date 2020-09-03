@@ -189,6 +189,7 @@ export async function getCollection(){
   query Collections($where: JSON){
     collections(where: $where) {
       name
+      title
     }
   }
 `

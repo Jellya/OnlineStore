@@ -21,10 +21,6 @@ export default function CollectionProducts({productsByCollection }) {
             <title>Collections</title>
           </Head>
           <Container>
-          {collections.length !== 0 && collections.map(itemCollection => {
-            // TODO вынести в отдельный компонент
-            return <div>{itemCollection.name}</div>
-          })}
             <div className={styles.products}>
             {
               productsByCollection.length !==0 && 
